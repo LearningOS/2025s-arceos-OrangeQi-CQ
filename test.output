@@ -1,0 +1,6 @@
+test-print failed
+test-ramfs_rename failed
+test-alt_alloc failed
+test-support_hashmap failed
+test-sys_map failed
+test-simple_hv failed
