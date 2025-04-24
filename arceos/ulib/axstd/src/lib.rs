@@ -71,6 +71,7 @@ pub mod sync;
 pub mod thread;
 pub mod time;
 
+#[cfg(feature = "alloc")]
 pub mod collections {
     pub use alloc::collections::*;
     pub use hashbrown::{HashMap, HashSet};
