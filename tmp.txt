@@ -1,39 +1,39 @@
     [92;1mCreating[0m FAT32 disk image "disk.img" ...
 mkfs.fat 4.2 (2021-01-31)
-No color
-print_with_color fault
+Has color
+Has Hello, Arceos!
+print_with_color pass
     [92;1mCreating[0m FAT32 disk image "disk.img" ...
 mkfs.fat 4.2 (2021-01-31)
 ramfs_rename fault
     [92;1mCreating[0m FAT32 disk image "disk.img" ...
 mkfs.fat 4.2 (2021-01-31)
-alt_alloc default
+alt_alloc pass
     [92;1mCreating[0m FAT32 disk image "disk.img" ...
 mkfs.fat 4.2 (2021-01-31)
-support_hashmap default
+support_hashmap pass
     [92;1mCreating[0m FAT32 disk image "disk.img" ...
 mkfs.fat 4.2 (2021-01-31)
 make[1]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload'
 make -C origin
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/origin'
+make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/origin'
 make -C hello_c
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/hello_c'
-riscv64-linux-musl-gcc -static hello.c -o hello
-riscv64-linux-musl-strip hello
+make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/hello_c'
 make -C fileops_c
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/fileops_c'
-riscv64-linux-musl-gcc -static fileops.c -o fileops
-riscv64-linux-musl-strip fileops
+make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/fileops_c'
 make -C mapfile_c
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/mapfile_c'
-riscv64-linux-musl-gcc -static mapfile.c -o mapfile
-riscv64-linux-musl-strip mapfile
+make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/mapfile_c'
 make -C skernel
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/skernel'
+make[2]: Nothing to be done for 'all'.
 make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/skernel'
 make -C skernel2
 make[2]: Entering directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/skernel2'
@@ -70,4 +70,4 @@ make[2]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload/skerne
 make[1]: Leaving directory '/root/2025s-arceos-OrangeQi-CQ/arceos/payload'
 Write file 'payload/skernel2/skernel2' into disk.img
 simple_hv default
-0
+300
