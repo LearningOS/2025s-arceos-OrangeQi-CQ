@@ -165,6 +165,25 @@ impl VfsNodeOps for DirNode {
         }
     }
 
+    
+
+    fn rename(&self, src_path: &str, dst_path: &str) -> VfsResult {
+        let node = self.this.upgrade().expect("this node not found");
+        let old_node = node.clone().lookup(src_path)?;
+
+        let mut split = dst_path.rsplit('/');
+        let new_file_name = split.next().expect("invalid path");
+
+        node.as_any() 
+            .downcast_ref::<DirNode>()
+            .expect("not a dir node")
+            .children
+            .write()
+            .insert(new_file_name.into(), old_node);
+
+        Ok(())
+    }
+
     axfs_vfs::impl_vfs_dir_default! {}
 }
 
