@@ -1,0 +1,105 @@
+    [92;1mBuilding[0m App: sys_map, Arch: riscv64, Platform: riscv64-qemu-virt, App type: rust
+[37mcargo -C exercises/sys_map/ build[0m [90m-Z unstable-options --target riscv64gc-unknown-none-elf --target-dir /root/2025s-arceos-OrangeQi-CQ/arceos/target --release  --features "axstd/log-level-warn"[0m
+[37mrust-objcopy --binary-architecture=riscv64[0m [90mexercises/sys_map//sys_map_riscv64-qemu-virt.elf --strip-all -O binary exercises/sys_map//sys_map_riscv64-qemu-virt.bin[0m
+    [96;1mRunning[0m on qemu...
+[37mqemu-system-riscv64[0m [90m-m 128M -smp 1 -machine virt -bios default -kernel exercises/sys_map//sys_map_riscv64-qemu-virt.bin -drive if=pflash,file=/root/2025s-arceos-OrangeQi-CQ/arceos/pflash.img,format=raw,unit=1 -device virtio-blk-pci,drive=disk0 -drive id=disk0,if=none,format=raw,file=disk.img -nographic -D qemu.log -d in_asm,int,mmu,pcall,cpu_reset,guest_errors[0m
+
+OpenSBI v1.0
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform Reboot Device    : sifive_test
+Platform Shutdown Device  : sifive_test
+Firmware Base             : 0x80000000
+Firmware Size             : 252 KB
+Runtime SBI Version       : 0.3
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000002000000-0x000000000200ffff (I)
+Domain0 Region01          : 0x0000000080000000-0x000000008003ffff ()
+Domain0 Region02          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x0000000087000000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART ISA             : rv64imafdcsuh
+Boot HART Features        : scounteren,mcounteren,time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Count      : 0
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+
+       d8888                            .d88888b.   .d8888b.
+      d88888                           d88P" "Y88b d88P  Y88b
+     d88P888                           888     888 Y88b.
+    d88P 888 888d888  .d8888b  .d88b.  888     888  "Y888b.
+   d88P  888 888P"   d88P"    d8P  Y8b 888     888     "Y88b.
+  d88P   888 888     888      88888888 888     888       "888
+ d8888888888 888     Y88b.    Y8b.     Y88b. .d88P Y88b  d88P
+d88P     888 888      "Y8888P  "Y8888   "Y88888P"   "Y8888P"
+
+arch = riscv64
+platform = riscv64-qemu-virt
+target = riscv64gc-unknown-none-elf
+smp = 1
+build_mode = release
+log_level = warn
+
+[37m[  0.386013 0 fatfs::dir:139] [31mIs a directory[m
+[m[37m[  0.432517 0 fatfs::dir:139] [31mIs a directory[m
+[m[37m[  0.483680 0 fatfs::dir:139] [31mIs a directory[m
+[m[37m[  0.541519 0 fatfs::dir:139] [31mIs a directory[m
+[mphdr: offset: 0x0=>0x0 size: 0x5FAC=>0x5FAC
+VA:0x0 - VA:0x6000
+phdr: offset: 0x6E70=>0x7E70 size: 0x340=>0x9B0
+VA:0x7000 - VA:0x9000
+entry: 0x526
+Mapping user stack: VA:0x3fffff0000 -> VA:0x4000000000
+New user address space: AddrSpace {
+    va_range: VA:0x0..VA:0x4000000000,
+    page_table_root: PA:0x8064f000,
+}
+handle_syscall [96] ...
+handle_syscall [29] ...
+Ignore SYS_IOCTL
+handle_syscall [66] ...
+MapFile ...
+handle_syscall [56] ...
+handle_syscall [64] ...
+handle_syscall [57] ...
+handle_syscall [56] ...
+handle_syscall [222] ...
+uspace base: VA:0x0
+uspace size: 0x4000000000
+map_alloc success: vaddr=VA:0x100000
+file: 3
+read success: buf.len=32
+write success: vaddr=VA:0x100000
+handle_syscall [66] ...
+Read back content: hello, arceos!
+handle_syscall [57] ...
+handle_syscall [66] ...
+MapFile ok!
+handle_syscall [94] ...
+[SYS_EXIT_GROUP]: system is exiting ..
+monolithic kernel exit [Some(0)] normally!

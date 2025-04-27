@@ -19,6 +19,7 @@ make run A=exercises/simple_hv/ BLK=y > $tmp_file 2>/dev/null
 
 output=$(grep -a "$grep_content" $tmp_file | tail -n1  )
 
+cat $tmp_file
 rm -rf $tmp_file 
 
 if [[ -z "$output" ]]; then
